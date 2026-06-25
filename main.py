@@ -7,6 +7,19 @@ from game.monster_generator import generate_monster
 # Import the database functions used to create, save and retrieve monsters
 from database.database import setup_database, save_monster, get_monsters
 
+from kivy.app import App
+from kivy.uix.boxlayout import BoxLayout
+
+class MainLayout(BoxLayout):
+    def start_scan(self, instance):
+        import scanner_script
+        scanner_script.run_scanner()
+
+class BarcodeApp(App):
+    def build(self):
+        return MainLayout()
+
+BarcodeApp().run()
 
 # Ensure the monster database exists before the game starts
 setup_database()

@@ -11,7 +11,7 @@
 - [x] Get everyone setup locally with the project
 - [ ] Get basic project tested on the phone - Hello World thing
 - [ ] Get access to phone camera
-- [ ] Get library that can scan barcodes
+- [x] Get library that can scan barcodes
 - [ ] Read the barcode data and analyze it for different types of barcodes
 - [ ] Create an algorithm that generates the monsters and items based on the barcode data
 
@@ -19,5 +19,4 @@
 # References
 ---
 - https://en.wikipedia.org/wiki/Skannerz
-
-Test
+- https://www.scandit.com/resources/guides/types-of-barcodes-choosing-the-right-barcode/

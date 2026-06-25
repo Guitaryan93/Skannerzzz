@@ -2,10 +2,19 @@ import sqlite3
 from datetime import datetime
 
 
+# Name of the SQLite database file.
+# If the file does not already exist, SQLite will create it automatically.
 DB_NAME = "monster_library.db"
 
 
 def setup_database():
+    """
+    Creates the Monster Library database if it does not already exist.
+
+    This function creates a table called 'monsters' which stores every
+    unique monster the player has collected.
+    """
+
     connection = sqlite3.connect(DB_NAME)
     cursor = connection.cursor()
 
@@ -30,6 +39,14 @@ def setup_database():
 
 
 def get_monster_by_barcode(barcode_value):
+    """
+    Searches the database for a monster using its barcode.
+
+    Returns:
+        The monster record if found.
+        None if the barcode does not exist.
+    """
+
     connection = sqlite3.connect(DB_NAME)
     cursor = connection.cursor()
 
@@ -47,6 +64,17 @@ def get_monster_by_barcode(barcode_value):
 
 
 def save_monster(monster):
+    """
+    Saves a newly discovered monster to the database.
+
+    Before saving, the barcode is checked to ensure the player
+    does not already own this monster.
+
+    Returns:
+        True  - Monster successfully added.
+        False - Monster already exists in the player's collection.
+    """
+
     existing_monster = get_monster_by_barcode(monster["barcode_value"])
 
     if existing_monster:
@@ -89,6 +117,15 @@ def save_monster(monster):
 
 
 def get_monsters():
+    """
+    Retrieves every monster from the player's collection.
+
+    Monsters are returned with the newest scans first.
+
+    Returns:
+        A list of all monsters stored in the database.
+    """
+
     connection = sqlite3.connect(DB_NAME)
     cursor = connection.cursor()
 

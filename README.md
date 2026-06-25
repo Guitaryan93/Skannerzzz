@@ -8,7 +8,7 @@
 ---
 - [x] Setup app building project environment
 - [x] Create GitHub Repo for project so we can both access it
-- [ ] Get everyone setup locally with the project
+- [x] Get everyone setup locally with the project
 - [ ] Get basic project tested on the phone - Hello World thing
 - [ ] Get access to phone camera
 - [ ] Get library that can scan barcodes
